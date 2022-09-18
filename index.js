@@ -2,6 +2,9 @@ require('dotenv').config()
 let express = require('express')
 let app = express()
 
+// implements places.js
+app.use('/places', require('./controllers/places'))
+
 // home page
 app.get('/', (req, res)=>{
     res.send('Home Page')
