@@ -1,22 +1,24 @@
+// Modules and Globals
 require('dotenv').config()
-let express = require('express')
-let app = express()
+const express = require('express')
+const app = express()
 
-//defines JSX
+// Express Settings
+app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
-// implements places.js
+// Controllers & Routes
 app.use('/places', require('./controllers/places'))
 
-// home page
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.render('home')
 })
 
-// wildcard route
-app.get('*', (req, res)=>{
+app.get('*', (req, res) => {
     res.render('error404')
 })
 
+// Listen for Connections
 app.listen(process.env.PORT)
