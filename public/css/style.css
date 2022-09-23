@@ -1,10 +1,14 @@
+body{
+    background-color: black;
+    color: wheat;
+}
 h1 {
     text-align: center;
-    color: cornflowerblue;
+    color: red;
   }
   
   p{
-    text-align: center;
+    text-transform: uppercase;
   }
 
 img{
