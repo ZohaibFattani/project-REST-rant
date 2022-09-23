@@ -1,19 +1,24 @@
-// imports react and Def function
-let React = require('react')
-let Def = require('./default')
+const React = require('react')
+const Def = require('./default')
 
-function home(){
-  return(
-    <Def>
-        <main>
-            <h1>HOME</h1>
+function home () {
+    return (
+        <Def>
+            <main>
+    <h1>HOME</h1>
+    <div>
+      <img src="/images/chia-fruit-drink.jpg" alt="Chia Fruit Shake" />
+      <div>
+        Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on <a href="UNSPLASH_LINK">Unsplash</a>
+      </div>
+    </div>
     <a href="/places">
-      <button className="btn-primary">Places Page</button>
+        <button className="btn-primary">Places Page</button>
     </a>
-        </main>
-    </Def>
-  )
+</main>
+
+        </Def>
+    )
 }
 
-//exports home function
 module.exports = home
