@@ -20,8 +20,6 @@ function Index (data) {
       </div>
     )
   })
-  
-      
     return (
       <Def>
           <main>
