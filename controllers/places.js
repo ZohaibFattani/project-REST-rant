@@ -66,7 +66,7 @@ router.get('/:id/edit', (req, res) => {
       res.render('error404')
   }
   else {
-    res.render('places/edit', { place: places[id] })
+    res.render('places/edit', { place: places[id], id })
   }
 })
 
@@ -97,7 +97,6 @@ router.put('/:id', (req, res) => {
       res.redirect(`/places/${id}`)
   }
 })
-
 
 
 module.exports = router
