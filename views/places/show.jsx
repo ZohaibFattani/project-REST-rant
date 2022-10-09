@@ -3,7 +3,22 @@ const Def = require("../default");
 
 function show(data) {
   let comments = <h3 className="inactive">No Comments yet!</h3>;
+  let rating = <h3 className="inactive">Not Yet rated</h3>;
   if (data.place.comments.length) {
+    let sumRatings = data.place.comments.reduce((tot, c) => {
+      return tot + c.stars
+    }, 0)
+    let averageRating = Math.round(sumRatings / data.place.comments.lenght)
+    let stars = ''
+    for (let i = 0; i < averageRating; i++) {
+      stars +- 'STAR'
+
+    }
+    rating = (
+      <h3>
+        {stars} stars
+      </h3>
+    )
     comments = data.place.comments.map((c) => {
       return (
         <div className="border">
@@ -13,6 +28,8 @@ function show(data) {
             <stong>- {c.author}</stong>
           </h3>
           <h4>Rating: {c.stars}</h4>
+          {rating}
+          <br />
         </div>
       );
     });
@@ -43,7 +60,11 @@ function show(data) {
           <div className="row">
             <div className="form-group col-sm-12">
               <label htmlFor="content">Content</label>
-              <textarea id="content" name="content" className="form-control"></textarea>
+              <textarea
+                id="content"
+                name="content"
+                className="form-control"
+              ></textarea>
             </div>
           </div>
           <div className="row">
@@ -53,15 +74,32 @@ function show(data) {
             </div>
             <div className="form-group col-sm-4">
               <label htmlFor="stars">Star Rating</label>
-              <input type="range" step="0.5" min="1" max="5" id="stars" name="stars" className="form-control" />
+              <input
+                type="range"
+                step="0.5"
+                min="1"
+                max="5"
+                id="stars"
+                name="stars"
+                className="form-control"
+              />
             </div>
             <div className="form-group col-sm-2">
               <label htmlFor="rant">Rant?</label>
-              <input type="checkbox" id="rant" name="rant" className="form-control" />
+              <input
+                type="checkbox"
+                id="rant"
+                name="rant"
+                className="form-control"
+              />
             </div>
           </div>
           <div>
-            <input type="submit" className="btn btn-primary" value="Add Comment" />
+            <input
+              type="submit"
+              className="btn btn-primary"
+              value="Add Comment"
+            />
           </div>
         </form>
       </main>
